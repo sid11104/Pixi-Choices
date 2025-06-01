@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#pixi-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.joystick {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.joystick::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    transform: translate(calc(var(--knob-x, 0px)), calc(var(--knob-y, 0px)));
+    transition: transform 0.1s ease-out;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
